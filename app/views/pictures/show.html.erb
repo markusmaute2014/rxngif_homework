@@ -1,10 +1,12 @@
 <h1>Picture Details</h1>
 
-<a href="http://localhost:3000/delete_picture/<%= @picture.id %>">Delete this picture</a>
+
+<%= link_to("Delete this picture", "http://localhost:3000/pictures/#{@picture.id}", :method => "delete") %>
+
 
 <p><h2><%= @picture.caption %></h2></p>
 
-<p><img src="<%= @picture.source %>"></p>
+<%= image_tag(@picture.source, :width => 480) %>
 
 
 

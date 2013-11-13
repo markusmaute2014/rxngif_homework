@@ -18,17 +18,17 @@ class PicturesController < ApplicationController
     p.caption = params[:caption]
     p.source = params[:source]
     p.save
-    redirect_to "http://localhost:3000/all_pictures", :notice => "Picture has been added...alriiiggght"
+    redirect_to pictures_url, :notice => "Picture has been added...alriiiggght"
  #why don´t I have to write anything here - how come this can goes to new
   end
 
   def destroy
     Picture.find(params[:id]).destroy
-    redirect_to "http://localhost:3000/all_pictures", :notice => "Picture has been toasted..I smell smoke"
+    redirect_to pictures_url, :notice => "Picture has been toasted..I smell smoke"
   end
 
   def edit
-  @picture_data = Picture.find(params[:id])
+  @picture = Picture.find(params[:id])
   end
 
   def update
@@ -36,7 +36,7 @@ class PicturesController < ApplicationController
    p.caption = params[:caption]
     p.source = params[:source]
     p.save
-     redirect_to "http://localhost:3000/all_pictures", :notice => "Picture has been updated"
+     redirect_to pictures_url, :notice => "Picture has been updated"
   end
 
 end
